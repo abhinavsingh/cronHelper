@@ -9,12 +9,10 @@ cronHelper.php is a utility class to avoid cron job overlap
 
 ## Usage
 
-require 'cronHelper.php';
-if(($pid = cronHelper::lock()) !== FALSE) {
-	/*
-	 * Write your cron job code here
-	*/
+	require 'cronHelper.php';
+	if(($pid = cronHelper::lock()) !== FALSE) {
+		// write your cron job code here
 	
-	// unlock once done with the job
-	cronHelper::unlock();
-}
+		// unlock once done with the job
+		cronHelper::unlock();
+	}
