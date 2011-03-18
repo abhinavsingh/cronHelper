@@ -9,7 +9,9 @@ cronHelper.php is a utility class to avoid cron job overlap
 
 ## Usage
 
+    // edit cronHelper.ini as required
 	require 'cronHelper.php';
+
 	if(($pid = cronHelper::lock()) !== FALSE) {
 		// write your cron job code here
 	

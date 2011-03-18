@@ -41,8 +41,7 @@
  * @link http://abhinavsingh.com/blog/2009/12/how-to-use-locks-in-php-cron-jobs-to-avoid-cron-overlaps/
  */
 	
-	define('LOCK_DIR', '/path/to/lock/directory/');
-	define('LOCK_SUFFIX', '.lock');
+	require_once 'cronHelper.ini';
 	
 	/**
 	 * cronHelper is helpful in avoiding cron job overlaps
