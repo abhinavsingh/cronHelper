@@ -64,7 +64,7 @@
 
 		public static function lock() {
 			global $argv;
-			$lock_file = LOCK_DIR.$argv[0].LOCK_SUFFIX;
+			$lock_file = LOCK_DIR.basename($argv[0].LOCK_SUFFIX);
 			
 			if(file_exists($lock_file)) {
 				self::$pid = file_get_contents($lock_file);
