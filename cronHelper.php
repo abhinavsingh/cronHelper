@@ -58,8 +58,8 @@
 
 		private static function isrunning() {
 			$pids = explode(PHP_EOL, `ps -e | awk '{print $1}'`);
-			if(in_array(self::$pid, $pids)) return TRUE;
-			return FALSE;
+			if(in_array(self::$pid, $pids)) return true;
+			return false;
 		}
 
 		public static function lock() {
@@ -70,7 +70,7 @@
 				self::$pid = file_get_contents($lock_file);
 				if(self::isrunning()) {
 					error_log("==".self::$pid."== Already in progress...");
-					return FALSE;
+					return false;
 				}
 				else {
 					error_log("==".self::$pid."== Previous job died abruptly...");
@@ -88,7 +88,7 @@
 			$lock_file = LOCK_DIR.$argv[0].LOCK_SUFFIX;
 			if(file_exists($lock_file)) unlink($lock_file);
 			error_log("==".self::$pid."== Releasing lock...");
-			return TRUE;
+			return true;
 		}
 
 	}
